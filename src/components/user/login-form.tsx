@@ -1,5 +1,7 @@
 import { FC } from 'react'
 import { useAppContext } from '../../middleware/context-provider'
+import { Navigate } from 'react-router-dom'
+import { Button } from '@mui/material'
 
 export const LoginForm: FC = () => {
   const [state, dispatch] = useAppContext()
@@ -8,20 +10,17 @@ export const LoginForm: FC = () => {
     dispatch({ type: 'LOGIN' })
   }
 
-  const onLogout = () => {
-    dispatch({ type: 'LOGOUT' })
+  if (state.user) {
+    return <Navigate to="/map" />
   }
 
   return (
     <h1>
-      {state.user ? (
-        <>
-          <p>{state.user.displayName}</p>
-          <button onClick={onLogout}>Logout</button>
-        </>
-      ) : (
-        <button onClick={onLogin}>Login</button>
-      )}
+      <Button
+        variant="contained"
+        onClick={onLogin}>
+        Log in
+      </Button>
     </h1>
   )
 }

@@ -1,4 +1,5 @@
-import { userAuth } from "../core/user-auth";
+import { MapHandler } from "../core/map/map-handler";
+import { userAuth } from "../core/user/user-auth";
 import { Action } from "./actions";
 
 export const executeCore = (action: Action) => {
@@ -7,5 +8,11 @@ export const executeCore = (action: Action) => {
     }
     if(action.type === "LOGOUT") {
         userAuth.Logout()
+    }
+    if(action.type === "START_MAP") {
+        MapHandler.start(action.payload)
+    }
+    if(action.type === "REMOVE_MAP") {
+        MapHandler.remove()
     }
 }
