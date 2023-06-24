@@ -9,6 +9,7 @@ export const MapViewer: FC = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current
+
     if (canvas && state.user) {
       dispatch({ type: 'START_MAP', payload: canvas })
     }
@@ -18,7 +19,6 @@ export const MapViewer: FC = () => {
   }, [])
 
   if (!state.user) {
-    console.log('no user found')
     return <Navigate to="/login" />
   }
 

@@ -1,3 +1,4 @@
+import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { BuildingViewer } from './components/building/building-viewer'
 import { MapViewer } from './components/map/map-viewer'

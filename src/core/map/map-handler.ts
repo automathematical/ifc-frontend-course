@@ -5,13 +5,13 @@ export const MapHandler = {
 
     start(container: HTMLDivElement)  {
         if(!this.viewer) {
-            console.log("Map started");
+            // console.log(container)
             this.viewer = new MapScene(container)
         }
     },
     remove()  {
         if(this.viewer) {
-            console.log("Map removed");
+            // console.log("Map removed");
             this.viewer.dispose()
             this.viewer = null
         }
