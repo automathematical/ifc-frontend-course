@@ -28,16 +28,11 @@ export const MapViewer: FC = () => {
 
   return (
     <>
-      <h1>Hello Map Viewer</h1>
-      <Button
-        variant="contained"
-        onClick={onLogout}>
-        Log out
-      </Button>
       <div
         className="full-screen"
         ref={canvasRef}
       />
+      <Button onClick={onLogout}>Log out</Button>
     </>
   )
 }
