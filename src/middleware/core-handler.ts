@@ -1,14 +1,14 @@
 import { Events } from './event-handler';
 import { MapHandler } from "../core/map/map-handler";
-import { userAuth } from "../core/user/user-auth";
+import { databaseHandler } from "../core/db/db-handler";
 import { Action } from "./actions";
 
 export const executeCore = (action: Action, events: Events) => {
     if(action.type === "LOGIN") {
-        userAuth.Login()
+        databaseHandler.Login()
     }
     if(action.type === "LOGOUT") {
-        userAuth.Logout()
+        databaseHandler.Logout()
     }
     if(action.type === "START_MAP") {
         const { container, user } = action.payload
@@ -20,5 +20,10 @@ export const executeCore = (action: Action, events: Events) => {
     if(action.type === "ADD_BUILDING") {
         MapHandler.addBuilding(action.payload)
     }
-
+    if(action.type === "DELETE_BUILDING") {
+        databaseHandler.deleteBuilding(action.payload, events)
+    }
+    if(action.type === "UPDATE_BUILDING") {
+        databaseHandler.updataeBuilding(action.payload)
+    }
 }
