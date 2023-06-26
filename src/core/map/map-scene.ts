@@ -4,8 +4,8 @@ import * as MAPBOX from 'mapbox-gl'
 import { MAPBOX_KEY } from '../../config'
 import { GisParameters, LngLat, Building } from '../../types';
 import { User } from 'firebase/auth';
-import { mapLinear } from 'three/src/math/MathUtils';
 import { CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer';
+import { MapDatabase } from './map-database';
 
 
 export class MapScene {
@@ -15,6 +15,7 @@ export class MapScene {
     private center: LngLat =  {lat: 0, lng: 0}
     private clickedCoordinates: LngLat = {lat: 0, lng: 0}
     private labels: {[id: string]: CSS2DObject} = {}
+    private database = new MapDatabase()
 
     constructor(container: HTMLDivElement) {
         const configuration = this.getConfig(container);
@@ -35,10 +36,18 @@ export class MapScene {
         this.labels = {}
     }
 
-    addBuilding( user: User) {
+    async getAllBuildings(user: User) {
+        const buildings = await this.database.getBuildings(user)
+        if(this.components) {
+            this.addToScene(buildings)
+        }
+    }
+
+    async addBuilding( user: User) {
         const {lat, lng} = this.clickedCoordinates
         const userID = user.uid
         const building = {userID, lat, lng, uid: "" }
+        building.uid = await this.database.add(building)
         this.addToScene([building])
     }
 

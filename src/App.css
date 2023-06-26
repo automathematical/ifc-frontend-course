@@ -14,13 +14,13 @@
 .thumbnail {
   background: rgba(230, 230, 230, 0, 7);
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 100%;
   border: 5px white;
   pointer-events: all;
   transition: background-color 0.2s ease-in-out;
 }
 
 .thumbnail:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(49, 134, 209);
   cursor: pointer;
 }
