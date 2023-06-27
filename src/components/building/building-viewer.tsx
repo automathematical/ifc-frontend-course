@@ -54,6 +54,7 @@ export const BuildingViewer: FC = () => {
             open={frontOpen}
             mode="BuildingInfo"
           />
+          <h1>Hello Building Viewer</h1>
         </Box>
       </Box>
     </>
