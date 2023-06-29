@@ -14,9 +14,9 @@ export const BuildingViewer: FC = () => {
 
   const [{ user, building }] = useAppContext()
 
-  if (!building) {
-    return <Navigate to={'/map'} />
-  }
+  if (!user) return <Navigate to="/login" />
+
+  if (!building) return <Navigate to={'/map'} />
 
   const toggleDrawer = (active: boolean) => {
     setSideOpen(active)
