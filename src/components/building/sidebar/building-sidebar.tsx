@@ -2,8 +2,11 @@ import { FC } from 'react'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { getSidebarTools } from './sidebar-tools'
 import { useAppContext } from '../../../middleware/context-provider'
+import { FrontMenuMode } from '../types'
 
-export const BuildingSidebar: FC<{ open: boolean; onToggleMenu: () => void }> = (props) => {
+export const BuildingSidebar: FC<{ open: boolean; onToggleMenu: (active: boolean, mode?: FrontMenuMode) => void }> = (
+  props
+) => {
   const { open, onToggleMenu } = props
   const [state, dispatch] = useAppContext()
 

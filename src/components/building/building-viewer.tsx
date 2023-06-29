@@ -6,11 +6,13 @@ import { BuildingTopbar } from './building-topbar'
 import { BuildingDrawer } from './building-drawer'
 import { getDrawerHeader } from './mui-utils'
 import { BuildingFrontMenu } from './front-menu/building-front-menu'
+import { FrontMenuMode } from './types'
 
 export const BuildingViewer: FC = () => {
+  const [width] = useState(240)
   const [sideOpen, setSideOpen] = useState(false)
   const [frontOpen, setFrontOpen] = useState(false)
-  const [width] = useState(240)
+  const [frontMode, setFrontMode] = useState<FrontMenuMode>('BuildingInfo')
 
   const [{ user, building }] = useAppContext()
 
@@ -22,7 +24,10 @@ export const BuildingViewer: FC = () => {
     setSideOpen(active)
   }
 
-  const toggleFrontMenu = (active: boolean) => {
+  const toggleFrontMenu = (active: boolean, mode?: FrontMenuMode) => {
+    if (mode) {
+      setFrontMode(mode)
+    }
     setFrontOpen(active)
   }
 
@@ -41,7 +46,7 @@ export const BuildingViewer: FC = () => {
           width={width}
           open={sideOpen}
           onClose={() => toggleDrawer(false)}
-          onToggleMenu={() => toggleFrontMenu(true)}
+          onToggleMenu={toggleFrontMenu}
         />
 
         <Box
@@ -52,7 +57,7 @@ export const BuildingViewer: FC = () => {
           <BuildingFrontMenu
             onToggleMenu={() => toggleFrontMenu(false)}
             open={frontOpen}
-            mode="BuildingInfo"
+            mode={frontMode}
           />
           <h1>Hello Building Viewer</h1>
         </Box>

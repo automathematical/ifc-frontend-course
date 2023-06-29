@@ -18,9 +18,8 @@ export const BuildingInfoMenu: FC<{
     const newBuilding = { ...building } as any
 
     newBuilding.name = data.get('building-name') || building.name
-    newBuilding.lnglat = data.get('building-name') || building.lng
-    newBuilding.lat = data.get('building-name') || building.lat
-    newBuilding.uid = data.get('building-name') || building.uid
+    newBuilding.lng = data.get('building-lng') || building.lng
+    newBuilding.lat = data.get('building-lat') || building.lat
 
     dispatch({ type: 'UPDATE_BUILDING', payload: newBuilding })
     onToggleMenu()

@@ -5,14 +5,27 @@ import ListIcon from '@mui/icons-material/ViewList'
 import MapIcon from '@mui/icons-material/Map'
 import DeleteIcon from '@mui/icons-material/Delete'
 import LogoutIcon from '@mui/icons-material/Logout'
+import AddBusiness from '@mui/icons-material/AddBusiness'
+import { FrontMenuMode } from '../types'
 
-export function getSidebarTools(state: State, dispatch: React.Dispatch<Action>, toggleMenu: () => void): Tool[] {
+export function getSidebarTools(
+  state: State,
+  dispatch: React.Dispatch<Action>,
+  toggleMenu: (active: boolean, mode?: FrontMenuMode) => void
+): Tool[] {
   return [
     {
       name: 'Info',
       icon: <ListIcon />,
       action: () => {
-        toggleMenu()
+        toggleMenu(true, 'BuildingInfo')
+      },
+    },
+    {
+      name: 'Model list',
+      icon: <AddBusiness />,
+      action: () => {
+        toggleMenu(true, 'ModelList')
       },
     },
     {
@@ -23,17 +36,17 @@ export function getSidebarTools(state: State, dispatch: React.Dispatch<Action>, 
       },
     },
     {
-      name: 'Log out',
-      icon: <LogoutIcon />,
-      action: () => {
-        dispatch({ type: 'LOGOUT' })
-      },
-    },
-    {
       name: 'Delete building',
       icon: <DeleteIcon />,
       action: () => {
         dispatch({ type: 'DELETE_BUILDING', payload: state.building })
+      },
+    },
+    {
+      name: 'Log out',
+      icon: <LogoutIcon />,
+      action: () => {
+        dispatch({ type: 'LOGOUT' })
       },
     },
   ]
