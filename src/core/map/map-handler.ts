@@ -1,13 +1,13 @@
 import { User } from "firebase/auth";
-import { MapScene } from "./map-scene";
 import { Events } from "../../middleware/event-handler";
+import { MapScene } from "./map-scene";
 
 export const MapHandler = {
     viewer: null as MapScene | null,
 
     async start(container: HTMLDivElement, user: User, events: Events)  {
         if(!this.viewer) {
-            // console.log(container)
+            console.log(container)
             this.viewer = new MapScene(container, events)
             await this.viewer.getAllBuildings(user)
         }
@@ -15,7 +15,7 @@ export const MapHandler = {
     
     remove()  {
         if(this.viewer) {
-            // console.log("Map removed");
+            console.log("Map removed");
             this.viewer.dispose()
             this.viewer = null
         }
