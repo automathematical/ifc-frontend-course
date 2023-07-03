@@ -40,7 +40,7 @@ export class BuildingScene {
         this.components.tools.add(grid)
 
         this.fragments = new OBC.Fragments(this.components)
-        // ! bug with the ifc model: BasicHouse.ifc being used => settubg culler disabled
+        // ! bug with the ifc model: BasicHouse.ifc being used => setting culler disabled
         // this.fragments.culler.enabled = false
         this.components.tools.add(this.fragments)
         this.loadAllModels(building)
