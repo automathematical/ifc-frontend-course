@@ -18,9 +18,13 @@ export const databaseHandler = {
     },
 
     deleteBuilding: async (building: Building, events: Events) => {
-        const id = building.uid
         const dbInstance = getFirestore(getApp())
-        await deleteDoc(doc(dbInstance, "buildings", id))
+        await deleteDoc(doc(dbInstance, "buildings", building.uid))
+        const storageInstance = getStorage(getApp())
+        for(const model of building.models) {
+            const fileRef = ref(storageInstance, model.id)
+            await deleteObject(fileRef)
+        }
         events.trigger({type: "CLOSE_BUILDING"})
     },
 
@@ -40,8 +44,7 @@ export const databaseHandler = {
     },
 
     deleteModel: async (model: Model, building: Building, events: Events) => {
-        const appInstance = getApp();
-        const storageInstance = getStorage(appInstance);
+        const storageInstance = getStorage(getApp());
         const fileRef = ref(storageInstance, model.id);
         await deleteObject(fileRef);
         events.trigger({ type: "UPDATE_BUILDING", payload: building });
