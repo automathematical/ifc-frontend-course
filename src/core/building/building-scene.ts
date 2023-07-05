@@ -40,6 +40,12 @@ export class BuildingScene {
     this.components.raycaster = new OBC.SimpleRaycaster(this.components)
     this.components.init()
 
+    const dimensions = new OBC.SimpleDimensions(this.components)
+    this.components.tools.add(dimensions)
+
+    const clipper = new OBC.EdgesClipper(this.components, OBC.EdgesPlane)
+    this.components.tools.add(clipper)
+
     const grid = new OBC.SimpleGrid(this.components)
     this.components.tools.add(grid)
 
@@ -81,8 +87,60 @@ export class BuildingScene {
       { name: 'wheel', action: this.updateCulling },
       { name: 'mousemove', action: this.preselect },
       { name: 'click', action: this.select },
+      { name: 'keydown', action: this.createClippingPlane },
+      { name: 'keydown', action: this.createDimension },
+      { name: 'keydown', action: this.deleteClippingPlaneOrDimension },
     ]
     this.toggleEvents(true)
+  }
+
+  toggleClippingPlanes(active: boolean) {
+    const clipper = this.getClipper()
+    if (clipper) {
+      clipper.enabled = active
+    }
+  }
+
+  private createClippingPlane = (event: KeyboardEvent) => {
+    if (event.code === "keyP") {
+      const clipper = this.getClipper()
+      if (clipper) {
+        clipper.create()
+      }
+    }
+  }
+
+  private getClipper() {
+    return this.components.tools.get("EdgesClipper") as OBC.EdgesClipper
+  }
+
+  toggleDimensions(active: boolean) {
+    const dimensions = this.getDimensions()
+    if (dimensions) {
+      dimensions.enabled = active
+    }
+  }
+
+  private createDimension = (event: KeyboardEvent) => {
+    if (event.code === "keyD") {
+      const dimensions = this.getDimensions()
+      if (dimensions) {
+        dimensions.create()
+      }
+    }
+  }
+
+  private getDimensions() {
+    return this.components.tools.get("SimpleDimensions") as OBC.SimpleDimensions
+  }
+
+  private deleteClippingPlaneOrDimension = (event: KeyboardEvent) => {
+    if (event.code === 'Delete') {
+      const dimensions = this.getDimensions()
+      dimensions.delete()
+      const clipper = this.getClipper()
+      clipper.delete()
+    }
   }
 
   private toggleEvents(active: boolean) {

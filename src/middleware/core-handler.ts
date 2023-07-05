@@ -46,4 +46,10 @@ export const executeCore = async (action: Action, events: Events) => {
   if (action.type === "EXPLODE_MODEL") {
     return buildingHandler.explode(action.payload)
   }
+  if (action.type === "TOGGLE_CLIPPER") {
+    return buildingHandler.toggleClippingPlane(action.payload)
+  }
+  if (action.type === "TOGGLE_DIMENSIONS") {
+    return buildingHandler.toggleDimensions(action.payload)
+  }
 }
