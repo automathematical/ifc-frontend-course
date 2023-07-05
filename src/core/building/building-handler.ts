@@ -55,5 +55,12 @@ export const buildingHandler = {
         if (this.viewer) {
             this.viewer.toggleDimensions(active)
         }
-    }
+    },
+
+    toggleFloorplan(active: boolean) {
+        if (this.viewer) {
+            this.viewer.toggleFloorplan(active)
+        }
+    },
+
 }
