@@ -1,10 +1,13 @@
-import { Button, Card, CardContent } from '@mui/material'
 import { FC } from 'react'
-import './building-front-menu.css'
-import CloseIcon from '@mui/icons-material/Close'
-import { BuildingInfoMenu } from './front-menu-content/building-info-menu'
-import { FrontMenuMode } from '../types'
+import { FrontMenuMode } from './types'
 import { ModelListMenu } from './front-menu-content/model-list-menu'
+import { BuildingInfoMenu } from './front-menu-content/building-info-menu'
+import { PropertiesMenu } from './front-menu-content/properties-menu'
+import { FloorPlanMenu } from './front-menu-content/floorplan-menu'
+
+import { Button, Card, CardContent } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import './building-front-menu.css'
 
 export const BuildingFrontMenu: FC<{
   mode: FrontMenuMode
@@ -18,10 +21,14 @@ export const BuildingFrontMenu: FC<{
   const content = new Map<FrontMenuMode, any>()
   content.set('BuildingInfo', <BuildingInfoMenu onToggleMenu={onToggleMenu} />)
   content.set('ModelList', <ModelListMenu />)
+  content.set('Properties', <PropertiesMenu />)
+  content.set('Floorplans', <FloorPlanMenu />)
 
   const titles = {
     BuildingInfo: 'Building Information',
     ModelList: 'Model List',
+    Floorplans: 'Floorplans',
+    Properties: 'Properties',
   }
 
   const title = titles[mode]

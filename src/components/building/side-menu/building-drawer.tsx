@@ -6,7 +6,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { BuildingSidebar } from './building-sidebar'
 import { getDrawer, getDrawerHeader } from './mui-utils'
-import { FrontMenuMode } from '../types'
+import { FrontMenuMode } from '../front-menu/types'
 
 export const BuildingDrawer: FC<{
   open: boolean

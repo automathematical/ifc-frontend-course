@@ -1,8 +1,10 @@
 import ListIcon from '@mui/icons-material/ViewList'
+import AddBusiness from '@mui/icons-material/AddBusiness'
+import FloorPlanIcon from '@mui/icons-material/Layers'
+import PropertiesIcon from '@mui/icons-material/Info'
 import MapIcon from '@mui/icons-material/Map'
 import DeleteIcon from '@mui/icons-material/Delete'
 import LogoutIcon from '@mui/icons-material/Logout'
-import AddBusiness from '@mui/icons-material/AddBusiness'
 import { Tool } from '../../../types'
 
 export function getSidebarTools(): Tool[] {
@@ -21,6 +23,22 @@ export function getSidebarTools(): Tool[] {
       icon: <AddBusiness />,
       action: (toggleMenu) => {
         toggleMenu(true, 'ModelList')
+      },
+    },
+    {
+      name: 'Floorplans',
+      active: false,
+      icon: <FloorPlanIcon />,
+      action: (toggleMenu) => {
+        toggleMenu(true, 'Floorplans')
+      },
+    },
+    {
+      name: 'Properties',
+      active: false,
+      icon: <PropertiesIcon />,
+      action: (toggleMenu) => {
+        toggleMenu(true, 'Properties')
       },
     },
     {

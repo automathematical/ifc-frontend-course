@@ -6,7 +6,7 @@ import { BuildingTopbar } from '../building/side-menu/building-topbar'
 import { BuildingDrawer } from './side-menu/building-drawer'
 import { getDrawerHeader } from '../building/side-menu/mui-utils'
 import { BuildingFrontMenu } from './front-menu/building-front-menu'
-import { FrontMenuMode } from './types'
+import { FrontMenuMode } from './front-menu/types'
 import { BuildingViewport } from './viewport/building-viewport'
 import { BuildingBottomMenu } from './bottom-menu/building-bottom-menu'
 

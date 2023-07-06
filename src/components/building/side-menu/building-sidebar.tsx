@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { getSidebarTools } from './sidebar-tools'
 import { useAppContext } from '../../../middleware/context-provider'
-import { FrontMenuMode } from '../types'
+import { FrontMenuMode } from '../front-menu/types'
 
 const tools = getSidebarTools()
 

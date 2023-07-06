@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useAppContext } from '../../../../middleware/context-provider'
 import { Button, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Clear'
-import './building-info-menu.css'
+import './front-menu-content.css'
 
 export const ModelListMenu: FC = () => {
   const [{ building, user }, dispatch] = useAppContext()
