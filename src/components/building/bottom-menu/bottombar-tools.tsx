@@ -1,8 +1,6 @@
 import CutIcon from '@mui/icons-material/ContentCut'
 import RulerIcon from '@mui/icons-material/Straighten'
 import ExplodeIcon from '@mui/icons-material/ImportExport'
-import LayersIcon from '@mui/icons-material/Layers'
-
 import { Tool } from '../../../types'
 
 export function getBottombarTools(): Tool[] {
