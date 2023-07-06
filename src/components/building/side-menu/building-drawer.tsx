@@ -11,7 +11,7 @@ import { FrontMenuMode } from '../front-menu/types'
 export const BuildingDrawer: FC<{
   open: boolean
   width: number
-  onToggleMenu: (active: boolean, mode?: FrontMenuMode) => void
+  onToggleMenu: (active?: boolean, mode?: FrontMenuMode) => void
   onClose: () => void
 }> = (props) => {
   const theme = useTheme()

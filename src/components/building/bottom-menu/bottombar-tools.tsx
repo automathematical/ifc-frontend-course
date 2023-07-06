@@ -40,17 +40,6 @@ export function getBottombarTools(): Tool[] {
         dispatch({ type: 'EXPLODE_MODEL', payload: tool.active })
       },
     },
-    {
-      name: 'Floor plan navigation',
-      icon: <LayersIcon />,
-      active: false,
-      action: (dispatch: any) => {
-        const tool = findtool('Floor plan navigation')
-        deactivateAllTools(dispatch, 'Floor plan navigation')
-        tool.active = !tool.active
-        dispatch({ type: 'TOGGLE_FLOORPLAN', payload: tool.active })
-      },
-    },
   ]
 
   const findtool = (name: string) => {

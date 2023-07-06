@@ -44,7 +44,7 @@ export const databaseHandler = {
         const storageInstance = getStorage(appInstance)
         const fileRef = ref(storageInstance, model.id)
         await uploadBytes(fileRef, file)
-        await buildingHandler.refreshModels(building)
+        await buildingHandler.refreshModels(building, events)
         events.trigger({ type: "UPDATE_BUILDING", payload: building })
     },
 
@@ -53,7 +53,7 @@ export const databaseHandler = {
         const fileRef = ref(storageInstance, model.id);
         await deleteObject(fileRef);
         await buildingHandler.deleteModels([model.id])
-        await buildingHandler.refreshModels(building)
+        await buildingHandler.refreshModels(building, events)
         events.trigger({ type: "UPDATE_BUILDING", payload: building });
     },
 }

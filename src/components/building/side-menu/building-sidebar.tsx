@@ -6,7 +6,7 @@ import { FrontMenuMode } from '../front-menu/types'
 
 const tools = getSidebarTools()
 
-export const BuildingSidebar: FC<{ open: boolean; onToggleMenu: (active: boolean, mode?: FrontMenuMode) => void }> = (
+export const BuildingSidebar: FC<{ open: boolean; onToggleMenu: (active?: boolean, mode?: FrontMenuMode) => void }> = (
   props
 ) => {
   const { open, onToggleMenu } = props

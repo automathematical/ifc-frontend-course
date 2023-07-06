@@ -16,7 +16,8 @@ export const ActionList = [
   "EXPLODE_MODEL",
   "TOGGLE_CLIPPER",
   "TOGGLE_DIMENSIONS",
-  "TOGGLE_FLOORPLAN"
+  "TOGGLE_FLOORPLAN",
+  "UPDATE_FLOORPLAN"
 ] as const
 
 export type ActionType = (typeof ActionList)[number]

@@ -4,7 +4,7 @@ import { Box, Button, TextField } from '@mui/material'
 import './front-menu-content.css'
 
 export const BuildingInfoMenu: FC<{
-  onToggleMenu: () => void
+  onToggleMenu: (active: boolean) => void
 }> = ({ onToggleMenu }) => {
   const [state, dispatch] = useAppContext()
 
@@ -22,7 +22,7 @@ export const BuildingInfoMenu: FC<{
     newBuilding.lat = data.get('building-lat') || building.lat
 
     dispatch({ type: 'UPDATE_BUILDING', payload: newBuilding })
-    onToggleMenu()
+    onToggleMenu(false)
   }
 
   return (

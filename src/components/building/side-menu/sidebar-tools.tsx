@@ -13,32 +13,32 @@ export function getSidebarTools(): Tool[] {
       name: 'Info',
       active: false,
       icon: <ListIcon />,
-      action: ({ toggleMenu }) => {
-        toggleMenu(true, 'BuildingInfo')
+      action: ({ onToggleMenu }) => {
+        onToggleMenu(true, 'BuildingInfo')
       },
     },
     {
       name: 'Model list',
       active: false,
       icon: <AddBusiness />,
-      action: (toggleMenu) => {
-        toggleMenu(true, 'ModelList')
+      action: ({ onToggleMenu }) => {
+        onToggleMenu(true, 'ModelList')
       },
     },
     {
       name: 'Floorplans',
       active: false,
       icon: <FloorPlanIcon />,
-      action: (toggleMenu) => {
-        toggleMenu(true, 'Floorplans')
+      action: ({ onToggleMenu }) => {
+        onToggleMenu(true, 'Floorplans')
       },
     },
     {
       name: 'Properties',
       active: false,
       icon: <PropertiesIcon />,
-      action: (toggleMenu) => {
-        toggleMenu(true, 'Properties')
+      action: ({ onToggleMenu }) => {
+        onToggleMenu(true, 'Properties')
       },
     },
     {

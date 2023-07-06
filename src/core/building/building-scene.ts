@@ -1,19 +1,20 @@
 import * as THREE from 'three'
 import * as OBC from 'openbim-components'
-import { BuildingDatabase } from './building-database'
-import { Building } from '../../types'
+import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial'
 import { downloadZip } from 'client-zip'
 import { unzip } from 'unzipit'
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial'
-import { toHaveDisplayValue } from '@testing-library/jest-dom/matchers'
+
+import { Building } from '../../types'
+import { Floorplan } from '../../types'
+import { Events } from '../../middleware/event-handler'
+import { BuildingDatabase } from './building-database'
 
 export class BuildingScene {
   database = new BuildingDatabase()
 
-  private floorplans: { name: string, id: string }[] = []
+  private floorplans: Floorplan[] = []
   private components: OBC.Components
   private fragments: OBC.Fragments
-  private sceneEvents: { name: any; action: any }[] = []
   private whiteMaterial = new THREE.MeshBasicMaterial({ color: "white" })
 
   get container() {
@@ -21,7 +22,11 @@ export class BuildingScene {
     return domElement.parentElement as HTMLDivElement
   }
 
-  constructor(container: HTMLDivElement, building: Building) {
+  private sceneEvents: { name: any, action: any }[] = []
+  private events: Events
+
+  constructor(container: HTMLDivElement, building: Building, events: Events) {
+    this.events = events
     this.components = new OBC.Components()
 
     const sceneComponent = new OBC.SimpleScene(this.components)
@@ -121,14 +126,13 @@ export class BuildingScene {
     return file as File
   }
 
-  toggleFloorplan(active: boolean) {
+  toggleFloorplan(active: boolean, floorplan?: Floorplan) {
     const floorNav = this.getFloorNav()
     if (!this.floorplans.length) return
-    if (active) {
+    if (active && floorplan) {
       this.toggleGrid(false)
       this.toggleEdges(true)
-      const first = this.floorplans[0]
-      floorNav.goTo(first.id)
+      floorNav.goTo(floorplan.id)
       this.fragments.materials.apply(this.whiteMaterial)
     } else {
       this.toggleGrid(true)
@@ -149,6 +153,16 @@ export class BuildingScene {
       { name: 'keydown', action: this.deleteClippingPlaneOrDimension },
     ]
     this.toggleEvents(true)
+  }
+
+  private toggleEvents(active: boolean) {
+    for (const event of this.sceneEvents) {
+      if (active) {
+        window.addEventListener(event.name, event.action)
+      } else {
+        window.removeEventListener(event.name, event.action)
+      }
+    }
   }
 
   toggleClippingPlanes(active: boolean) {
@@ -211,15 +225,6 @@ export class BuildingScene {
     }
   }
 
-  private toggleEvents(active: boolean) {
-    for (const event of this.sceneEvents) {
-      if (active) {
-        window.addEventListener(event.name, event.action)
-      } else {
-        window.removeEventListener(event.name, event.action)
-      }
-    }
-  }
 
   private preselect = () => {
     this.fragments.highlighter.highlight("preselection")
@@ -297,6 +302,11 @@ export class BuildingScene {
             point: new THREE.Vector3(0, elevation, 0)
           })
         }
+
+        this.events.trigger({
+          type: "UPDATE_FLOORPLAN",
+          payload: this.floorplans,
+        })
       }
 
       // Load all the fragments within this zip file

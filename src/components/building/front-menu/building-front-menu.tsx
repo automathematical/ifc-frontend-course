@@ -12,7 +12,7 @@ import './building-front-menu.css'
 export const BuildingFrontMenu: FC<{
   mode: FrontMenuMode
   open: boolean
-  onToggleMenu: () => void
+  onToggleMenu: (active: boolean) => void
 }> = ({ mode, open, onToggleMenu }) => {
   if (!open) {
     return <></>
@@ -38,7 +38,7 @@ export const BuildingFrontMenu: FC<{
       <CardContent>
         <div className="front-menu-header">
           <h2>{title}</h2>
-          <Button onClick={() => onToggleMenu()}>
+          <Button onClick={() => onToggleMenu(false)}>
             <CloseIcon />
           </Button>
         </div>

@@ -26,7 +26,7 @@ export const BuildingViewer: FC = () => {
     setSideOpen(active)
   }
 
-  const toggleFrontMenu = (active: boolean, mode?: FrontMenuMode) => {
+  const toggleFrontMenu = (active = !frontOpen, mode?: FrontMenuMode) => {
     if (mode) {
       setFrontMode(mode)
     }
@@ -59,7 +59,7 @@ export const BuildingViewer: FC = () => {
           <BuildingViewport />
 
           <BuildingFrontMenu
-            onToggleMenu={() => toggleFrontMenu(false)}
+            onToggleMenu={toggleFrontMenu}
             open={frontOpen}
             mode={frontMode}
           />
