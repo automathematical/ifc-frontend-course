@@ -13,7 +13,7 @@ export const FloorPlanMenu: FC = () => {
 
   return (
     <div>
-      {state.floorplan.map((plan) => (
+      {state.floorplans.map((plan) => (
         <div
           key={plan.name}
           className="list-item">

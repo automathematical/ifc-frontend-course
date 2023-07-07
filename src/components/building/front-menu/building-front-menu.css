@@ -1,7 +1,7 @@
 .front-menu {
   position: absolute;
   height: 80vh;
-  min-width: 60%;
+  overflow-y: auto !important;
   z-index: 1;
 }
 

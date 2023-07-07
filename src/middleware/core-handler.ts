@@ -53,7 +53,7 @@ export const executeCore = async (action: Action, events: Events) => {
     return buildingHandler.toggleDimensions(action.payload)
   }
   if (action.type === "TOGGLE_FLOORPLAN") {
-    const { active, floorplan } = action.payload
-    return buildingHandler.toggleFloorplan(active, floorplan)
+    const { active, floorplans } = action.payload
+    return buildingHandler.toggleFloorplan(active, floorplans)
   }
 }
