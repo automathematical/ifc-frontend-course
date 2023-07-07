@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useAppContext } from '../../middleware/context-provider'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import './user-styles.css'
 
 export const LoginPage: FC = () => {
