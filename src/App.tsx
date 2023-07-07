@@ -2,8 +2,8 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { BuildingViewer } from './components/building/building-viewer'
 import { MapViewer } from './components/map/map-viewer'
-import { LoginForm } from './components/user/login-form'
 import { ContextProvider } from './middleware/context-provider'
+import { Dashboard } from './components/home'
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
           />
           <Route
             path="/login"
-            element={<LoginForm />}
+            element={<Dashboard />}
           />
           <Route
             path="/"
-            element={<LoginForm />}
+            element={<Dashboard />}
           />
         </Routes>
       </Router>
