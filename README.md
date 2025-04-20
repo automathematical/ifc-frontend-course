@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+```markdown
+# IFC.js Crash Course Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository provides an overview of the IFC.js Crash Course, the first course offered by That Open University (formerly IFC.js) around 2022. The course was designed to empower developers to create web-based Building Information Modeling (BIM) applications using the IFC.js library.
 
-## Available Scripts
+## Course Summary
 
-In the project directory, you can run:
+**Objective**: Teach developers to build native IFC-based applications, viewers, and integrations for the Architecture, Engineering, and Construction (AEC) industry using JavaScript and WebAssembly (WASM).
 
-### `npm start`
+**Duration**: Approximately 20 hours across 90 video lessons.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Content**:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Fundamentals of web development (HTML, CSS, JavaScript).
+- Usage of developer tools and libraries such as Git, Three.js, and IFC.js.
+- Techniques for reading, writing, and editing IFC files.
+- Advanced topics, including:
+  - Integration with Geographic Information Systems (GIS).
+  - Generating CAD drawings.
+  - Manipulating 3D scans.
+  - Connecting to databases.
 
-### `npm test`
+**Delivery**: Lifetime access to video content with a focus on hands-on learning through practical projects, such as building a 3D IFC viewer using Three.js and IFC.js.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Target Audience**: Aimed at developers with basic web development knowledge. Welcomed both coders (JavaScript, C++, WebAssembly) and non-coders contributing to the open-source IFC.js ecosystem.
 
-### `npm run build`
+**Impact**: Course funds supported the ongoing development of IFC.js, promoting innovation in web-based BIM technologies and making BIM application development accessible to individuals and smaller companies.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Why IFC.js?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+IFC.js enables developers to transform web browsers into powerful BIM platforms, leveraging open-source tools to democratize access to BIM technology. This course was a foundational step in teaching developers to harness these capabilities.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Resources
 
-### `npm run eject`
+- Explore more about the course at [That Open University](https://thatopen.university/).
+- Check out the [IFC.js GitHub repository](https://github.com/IFCjs) for the latest updates and open-source contributions.
+- Learn about the IFC.js ecosystem and its applications in the [official documentation](https://ifcjs.github.io/info/).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Feel free to contribute to this repository by sharing your own IFC.js projects, course insights, or related resources. Fork the repo, make your changes, and submit a pull request!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
