@@ -32,9 +32,8 @@ IFC.js enables developers to transform web browsers into powerful BIM platforms,
 
 ## Resources
 
-- Explore more about the course at [That Open University](https://thatopen.university/).
-- Check out the [IFC.js GitHub repository](https://github.com/IFCjs) for the latest updates and open-source contributions.
-- Learn about the IFC.js ecosystem and its applications in the [official documentation](https://ifcjs.github.io/info/).
+- Explore more about the new course at [That Open Company](https://thatopen.com/).
+- Check out the [IFC.js GitHub repository]((https://github.com/ThatOpen/engine_web-ifc) for the latest updates and open-source contributions.
 
 ## Contributing
 
@@ -42,4 +41,4 @@ Feel free to contribute to this repository by sharing your own IFC.js projects, 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
