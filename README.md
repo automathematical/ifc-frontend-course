@@ -1,4 +1,4 @@
-```markdown
+
 # IFC.js Crash Course Overview
 
 This repository provides an overview of the IFC.js Crash Course, the first course offered by That Open University (formerly IFC.js) around 2022. The course was designed to empower developers to create web-based Building Information Modeling (BIM) applications using the IFC.js library.
