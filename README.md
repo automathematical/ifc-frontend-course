@@ -1,7 +1,7 @@
 
 # IFC.js Crash Course Overview
 
-This repository provides an overview of the IFC.js Crash Course, the first course offered by That Open University (formerly IFC.js) around 2022. The course was designed to empower developers to create web-based Building Information Modeling (BIM) applications using the IFC.js library.
+This repository contains the completed IFC.js Crash Course, the first course offered by That Open University (formerly IFC.js) around 2022. The course was designed to empower developers to create web-based Building Information Modeling (BIM) applications using the IFC.js library.
 
 ## Course Summary
 
@@ -33,7 +33,7 @@ IFC.js enables developers to transform web browsers into powerful BIM platforms,
 ## Resources
 
 - Explore more about the new course at [That Open Company](https://thatopen.com/).
-- Check out the [IFC.js GitHub repository]((https://github.com/ThatOpen/engine_web-ifc) for the latest updates and open-source contributions.
+- Check out the [IFC.js GitHub repository](https://github.com/ThatOpen/) for the latest updates and open-source contributions.
 
 ## Contributing
 
